@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around the Table — Mary Square Content Pitch</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#2c2c2a;background:#faf8f3;padding:1.5rem}
+.deck{max-width:860px;margin:0 auto;padding:0.5rem 0 3rem}
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1.5rem;padding:0.75rem 0;border-bottom:0.5px solid #d3d1c7;position:sticky;top:0;z-index:10;background:#faf8f3}
+.nb{font-size:10px;padding:4px 12px;border-radius:20px;border:0.5px solid #b4b2a9;background:transparent;color:#5f5e5a;cursor:pointer;letter-spacing:0.04em;transition:all .15s}
+.nb:hover{background:#f1efe8}
+.nb.active{background:#2c2c2a;color:#faf8f3;border-color:#2c2c2a}
+.sec{display:none}.sec.active{display:block}
+
+.cover{padding:4rem 2rem;text-align:center;border:0.5px solid #d3d1c7;border-radius:16px;background:#f5f2ea}
+.cover-rule{width:48px;height:1px;background:#888780;margin:1.5rem auto}
+.eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#888780;margin-bottom:1.25rem}
+.cover-title{font-family:Georgia,serif;font-size:32px;font-weight:400;line-height:1.25;color:#2c2c2a;margin-bottom:0.5rem}
+.cover-sub{font-family:Georgia,serif;font-size:15px;color:#5f5e5a;font-style:italic;margin-bottom:0}
+.cover-meta{font-size:11px;color:#888780;letter-spacing:0.06em;line-height:2.4}
+.name-opts{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:1.25rem}
+.name-pill{font-size:12px;padding:6px 16px;border-radius:20px;border:0.5px solid #b4b2a9;color:#5f5e5a;cursor:pointer;transition:all .15s;background:#faf8f3}
+.name-pill:hover{border-color:#5f5e5a;color:#2c2c2a}
+.name-pill.picked{background:#2c2c2a;color:#faf8f3;border-color:#2c2c2a}
+
+.section-wrap{padding:2rem 0}
+.section-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#888780;margin-bottom:0.5rem}
+.section-title{font-family:Georgia,serif;font-size:22px;font-weight:400;color:#2c2c2a;margin-bottom:0.25rem;line-height:1.3}
+.section-deck{font-size:14px;color:#5f5e5a;line-height:1.7;margin-bottom:1.75rem;max-width:640px}
+
+.card{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:12px}
+.card-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:0.4rem}
+.card-title{font-size:15px;font-weight:500;color:#2c2c2a;margin-bottom:0.35rem;line-height:1.4}
+.card-body{font-size:13px;color:#5f5e5a;line-height:1.65}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+
+.stat-card{background:#f5f2ea;border-radius:8px;padding:1rem;text-align:center}
+.stat-label{font-size:11px;color:#888780;margin-bottom:4px;letter-spacing:0.04em}
+.stat-val{font-size:22px;font-weight:500;color:#2c2c2a;line-height:1.2}
+.stat-sub{font-size:11px;color:#5f5e5a;margin-top:3px}
+
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px;border:0.5px solid #d3d1c7;color:#5f5e5a;background:#f5f2ea}
+.tag-pink{background:#FBEAF0;color:#72243E;border-color:#F4C0D1}
+.tag-amber{background:#FAEEDA;color:#633806;border-color:#FAC775}
+.tag-teal{background:#E1F5EE;color:#085041;border-color:#9FE1CB}
+.tag-purple{background:#EEEDFE;color:#3C3489;border-color:#CECBF6}
+
+.persona-card{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:12px;border-left-width:3px;border-left-style:solid}
+.persona-card.p1{border-left-color:#D4537E}
+.persona-card.p2{border-left-color:#EF9F27}
+.persona-card.p3{border-left-color:#5DCAA5}
+.persona-card.p4{border-left-color:#7F77DD}
+
+.ep-card{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:12px}
+.ep-season{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#888780;margin-bottom:0.3rem}
+.ep-title{font-size:15px;font-weight:500;color:#2c2c2a;margin-bottom:0.5rem}
+.ep-body{font-size:13px;color:#5f5e5a;line-height:1.65;margin-bottom:0.75rem}
+.ep-tags{display:flex;flex-wrap:wrap;gap:4px}
+
+.flow-row{display:flex;align-items:stretch;gap:0;margin-bottom:1.5rem}
+.flow-box{flex:1;background:#f5f2ea;padding:1rem;text-align:center;border-top:0.5px solid #d3d1c7;border-bottom:0.5px solid #d3d1c7;border-right:0.5px solid #d3d1c7}
+.flow-box:first-child{border-left:0.5px solid #d3d1c7;border-radius:8px 0 0 8px}
+.flow-box:last-child{border-radius:0 8px 8px 0}
+.flow-box-title{font-size:12px;font-weight:500;color:#2c2c2a;margin-bottom:4px}
+.flow-box-sub{font-size:11px;color:#5f5e5a;line-height:1.5}
+.flow-arrow{display:flex;align-items:center;padding:0 4px;color:#888780;font-size:14px;flex-shrink:0}
+
+.budget-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid #d3d1c7}
+.budget-row:last-child{border-bottom:none}
+.budget-label{font-size:13px;color:#2c2c2a;flex:1}
+.budget-old{font-size:13px;color:#b4b2a9;text-decoration:line-through;min-width:80px;text-align:right}
+.budget-new{font-size:13px;font-weight:500;color:#2c2c2a;min-width:80px;text-align:right}
+.budget-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:#E1F5EE;color:#085041;border:0.5px solid #9FE1CB;white-space:nowrap}
+
+.ask-item{display:flex;gap:12px;padding:12px 0;border-bottom:0.5px solid #d3d1c7;align-items:flex-start}
+.ask-item:last-child{border-bottom:none}
+.ask-num{font-size:11px;font-weight:500;color:#888780;min-width:20px;padding-top:2px}
+.ask-title{font-size:14px;font-weight:500;color:#2c2c2a;margin-bottom:3px}
+.ask-body{font-size:12px;color:#5f5e5a;line-height:1.6}
+
+@media(max-width:600px){
+  .two-col,.three-col{grid-template-columns:1fr}
+  .flow-row{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg);padding:4px 0;justify-content:center}
+  .flow-box:first-child{border-radius:8px 8px 0 0;border-right:0.5px solid #d3d1c7;border-bottom:none}
+  .flow-box:last-child{border-radius:0 0 8px 8px}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<div class="nav">
+  <button class="nb active" onclick="show('cover',this)">Cover</button>
+  <button class="nb" onclick="show('idea',this)">The idea</button>
+  <button class="nb" onclick="show('why',this)">Why it works</button>
+  <button class="nb" onclick="show('format',this)">The format</button>
+  <button class="nb" onclick="show('personas',this)">The personas</button>
+  <button class="nb" onclick="show('episodes',this)">Episodes</button>
+  <button class="nb" onclick="show('system',this)">Content system</button>
+  <button class="nb" onclick="show('budget',this)">The budget case</button>
+  <button class="nb" onclick="show('ask',this)">Next steps</button>
+</div>
+
+<div id="cover" class="sec active">
+  <div class="cover">
+    <div class="eyebrow">Mary Square &mdash; Content strategy</div>
+    <div class="cover-rule"></div>
+    <div class="cover-title" id="cover-title-display">Around the table</div>
+    <div class="cover-sub">A creator series about the women who set it</div>
+    <div class="cover-rule"></div>
+    <div class="cover-meta">A MINISERIES PITCH &nbsp;&middot;&nbsp; SPRING 2026</div>
+    <div style="margin-top:2rem;font-size:12px;color:#888780;margin-bottom:0.75rem">Name candidates &mdash; select to preview</div>
+    <div class="name-opts">
+      <div class="name-pill picked" onclick="pickName(this,'Around the table')">Around the table</div>
+      <div class="name-pill" onclick="pickName(this,'Set the table')">Set the table</div>
+      <div class="name-pill" onclick="pickName(this,'The gathering')">The gathering</div>
+      <div class="name-pill" onclick="pickName(this,'Come to the table')">Come to the table</div>
+      <div class="name-pill" onclick="pickName(this,'Passed down')">Passed down</div>
+      <div class="name-pill" onclick="pickName(this,'She sets the table')">She sets the table</div>
+    </div>
+  </div>
+</div>
+
+<div id="idea" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">01 &mdash; The idea</div>
+    <div class="section-title">A miniseries about tradition, charm, and the women who carry it forward</div>
+    <div class="section-deck">She already gathers people. She already curates the space. She already knows which flowers go on an Easter table and why. This series just puts a camera in the room.</div>
+    <div class="card">
+      <div class="card-label">The concept</div>
+      <div class="card-title">A seasonal brunch and garden party miniseries, hosted by a rotating cast of real women across generations</div>
+      <div class="card-body">Each episode is an intimate gathering &mdash; brunch, garden party, or afternoon tea &mdash; set in a beautifully curated home. The host either goes to a guest's space or welcomes guests to hers. Around the table, women share stories of tradition, celebration, and the rituals they've inherited or invented. The brand dresses the table. The women do the rest.</div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">The setting</div>
+        <div class="card-title">A real home, dressed through the Mary Square lens</div>
+        <div class="card-body">Not a studio. Not a set. A real dining room, a garden, a back porch &mdash; curated with Mary Square product. The space is the campaign.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">The conversation</div>
+        <div class="card-title">Stories of tradition, passed down or newly made</div>
+        <div class="card-body">What did your mother always do on Easter? What recipe do you make that no one else could? What does celebration mean in your family? Warm, specific, real.</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">The format</div>
+        <div class="card-title">Miniseries &mdash; one episode per season, with variation</div>
+        <div class="card-body">Spring brunch. Summer garden party. Fall harvest table. Holiday gathering. Each with its own palette, product story, and guest generation.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">The throughline</div>
+        <div class="card-title">Every generation of her customer, at the same table</div>
+        <div class="card-body">The 35-year-old who is becoming the host. The 55-year-old who has always been. The 70-year-old who taught them both. One brand. One table. All of her.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="why" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">02 &mdash; Why it works</div>
+    <div class="section-title">Three reasons this series earns its place</div>
+    <div class="section-deck">It is authentic to the brand, it solves a real production problem, and it speaks directly to the women Mary Square already knows.</div>
+    <div class="card">
+      <div class="card-label">Reason one</div>
+      <div class="card-title">It lives inside her identity, not outside it</div>
+      <div class="card-body">Mary Square's customer doesn't need to be sold to through a lifestyle she aspires to. She is already living it. This series is a mirror, not a billboard. She sees herself at that table &mdash; and she wants to be the one who set it. That's not an advertising problem. That's an identity alignment. The content works because the brand already belongs in the room.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Reason two</div>
+      <div class="card-title">It speaks to every generation of her &mdash; at once</div>
+      <div class="card-body">The 35-year-old is learning to host. The 52-year-old has been doing it for decades. The 68-year-old is the one they all learned from. Each episode featuring a different generational guest is also a different ad set. The same production day produces assets mapped to every persona already established in the brand strategy. One shoot. Many audiences. Zero wasted footage.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Reason three</div>
+      <div class="card-title">Tradition is culturally relevant &mdash; and undersupplied</div>
+      <div class="card-body">There is a real appetite right now for content about slowing down, gathering, and doing things the way they used to be done. The pendulum is swinging back. Handwritten notes. Cloth napkins. A table worth sitting at. Mary Square is positioned at exactly the right moment to own this territory in a way no competitor is currently claiming.</div>
+    </div>
+  </div>
+</div>
+
+<div id="format" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">03 &mdash; The format</div>
+    <div class="section-title">What a production day actually looks like</div>
+    <div class="section-deck">Each episode is designed as a full-day production event in a single location, optimized to output content across every channel and use case simultaneously.</div>
+    <div class="flow-row">
+      <div class="flow-box">
+        <div class="flow-box-title">The space</div>
+        <div class="flow-box-sub">A real home, dressed in Mary Square. Products styled naturally &mdash; not staged.</div>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-box">
+        <div class="flow-box-title">The gathering</div>
+        <div class="flow-box-sub">3&ndash;5 women, one host, one generational theme.</div>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-box">
+        <div class="flow-box-title">The story</div>
+        <div class="flow-box-sub">Conversation about tradition, celebration, what gets passed down.</div>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-box">
+        <div class="flow-box-title">The assets</div>
+        <div class="flow-box-sub">Long-form, stills, Reels, UGC, paid creative &mdash; one day.</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Host or guest</div>
+        <div class="card-title">Two episode models</div>
+        <div class="card-body">Model A: The series host comes to a guest's home &mdash; her space, her china, her garden. Model B: Guests come to the host &mdash; the space is styled fully in Mary Square. Both work. The mix keeps the series feeling alive, not formulaic.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Seasonal variation</div>
+        <div class="card-title">Four episodes per year, each with its own identity</div>
+        <div class="card-body">Spring: Easter brunch, new beginnings, pastels. Summer: Garden party, long table, outdoor living. Fall: Harvest table, layering, gratitude. Holiday: Intimate gathering, candlelight, tradition.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">The product story</div>
+      <div class="card-title">Every episode is a curated collection moment</div>
+      <div class="card-body">The host selects a cocktail blend, a tea pairing, or a signature drink for the gathering. The table is set with Mary Square. The women wear it. The space is dressed in it. Nothing is labeled. Everything is seen. The product integration is total &mdash; and entirely natural.</div>
+    </div>
+  </div>
+</div>
+
+<div id="personas" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">04 &mdash; The personas</div>
+    <div class="section-title">Every generation of her, at the table</div>
+    <div class="section-deck">The series is designed around the four generational personas already established in the Mary Square brand strategy. Each episode features one generation as the focal guest &mdash; and each episode's assets map directly back to her corresponding ad set.</div>
+    <div class="persona-card p1">
+      <div class="card-label">The emerging host &nbsp;&middot;&nbsp; mid-30s</div>
+      <div class="card-title">She is becoming who her mother already is</div>
+      <div class="card-body">She is starting to host. She cares about getting it right. She buys the flowers, irons the cloth napkins for the first time, texts her mom to ask what she always put in the centerpiece. Her episode is about learning &mdash; and about the pride of the first really beautiful table she sets herself. She is Mary Square's growth customer. The series shows her what she's about to become.</div>
+      <div style="margin-top:0.75rem"><span class="tag-pink tag">Mid-30s</span><span class="tag-pink tag">First-time host</span><span class="tag-pink tag">Pattern with intention</span><span class="tag-pink tag">Social architecture</span></div>
+    </div>
+    <div class="persona-card p2">
+      <div class="card-label">The confirmed host &nbsp;&middot;&nbsp; late 40s&ndash;early 50s</div>
+      <div class="card-title">She has been doing this for twenty years and she is very good at it</div>
+      <div class="card-body">This is the heart of the Mary Square customer. She volunteers her home first. She has opinions about tablecloths. Her monogram is on the napkin rings. She doesn't need to be taught &mdash; she needs to be celebrated. Her episode is a tribute to the woman who shows up for everyone, beautifully, every time.</div>
+      <div style="margin-top:0.75rem"><span class="tag-amber tag">Late 40s&ndash;50s</span><span class="tag-amber tag">Core customer</span><span class="tag-amber tag">Keeper of traditions</span><span class="tag-amber tag">Social organizer</span></div>
+    </div>
+    <div class="persona-card p3">
+      <div class="card-label">The matriarch &nbsp;&middot;&nbsp; 60s&ndash;70s</div>
+      <div class="card-title">She is the one they all learned from</div>
+      <div class="card-body">She taught the confirmed host everything she knows. She has a tablecloth that belonged to her mother. She knows how to set an Easter table because she has done it for fifty years. Her episode is about legacy &mdash; what gets passed down, what gets kept, what gets changed. She is the emotional anchor of the series and the highest-LTV customer in the ecosystem.</div>
+      <div style="margin-top:0.75rem"><span class="tag-teal tag">60s&ndash;70s</span><span class="tag-teal tag">Matriarch</span><span class="tag-teal tag">Legacy &amp; heritage</span><span class="tag-teal tag">Highest LTV</span></div>
+    </div>
+    <div class="persona-card p4">
+      <div class="card-label">The crossover guest &nbsp;&middot;&nbsp; varies</div>
+      <div class="card-title">She brings a different tradition to the table &mdash; and fits right in</div>
+      <div class="card-body">One episode per season features a guest from outside the core demographic &mdash; a different cultural tradition of celebration, a different family story, a different way of doing the same thing. Charm is universal. Hospitality is universal. The table expands. This is the episode that earns the brand cultural credibility without performing it.</div>
+      <div style="margin-top:0.75rem"><span class="tag-purple tag">Varies</span><span class="tag-purple tag">Cultural bridge</span><span class="tag-purple tag">Earned credibility</span><span class="tag-purple tag">Expansion audience</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="episodes" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">05 &mdash; Episode concepts</div>
+    <div class="section-title">What it looks like across a year</div>
+    <div class="section-deck">Four seasonal episodes, each with its own product story, generational guest, and conversation theme.</div>
+    <div class="ep-card">
+      <div class="ep-season">Episode 1 &mdash; Spring</div>
+      <div class="ep-title">"The Easter table"</div>
+      <div class="ep-body">The matriarch hosts. She has been setting this table for 40 years. She shows the emerging host how she folds the napkins, where the flowers go, which china comes out only for Easter. The conversation: what did your mother always do that you still do? What will you pass to yours? Product story: spring collection, pastels, the monogrammed napkin ring. Signature drink: a rosé cocktail or a floral tea blend.</div>
+      <div class="ep-tags"><span class="tag-teal tag">Matriarch focus</span><span class="tag-pink tag">Emerging host</span><span class="tag">Spring collection</span><span class="tag">Legacy</span></div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-season">Episode 2 &mdash; Summer</div>
+      <div class="ep-title">"The long table"</div>
+      <div class="ep-body">The confirmed host goes to a guest's outdoor space. Long table. Mismatched chairs. Garden flowers. The conversation is about the summer gathering traditions they've built themselves &mdash; the annual girls' trip, the standing Fourth of July, the dinner party nobody leaves before midnight. Product story: outdoor entertaining collection, bright patterns, the hostess gift. Signature drink: a signature summer cocktail.</div>
+      <div class="ep-tags"><span class="tag-amber tag">Confirmed host</span><span class="tag">Summer collection</span><span class="tag">Outdoor entertaining</span><span class="tag">Friendship</span></div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-season">Episode 3 &mdash; Fall</div>
+      <div class="ep-title">"What she taught me"</div>
+      <div class="ep-body">The crossover episode. A guest from a different cultural tradition of celebration joins the table. Her harvest traditions are different. Her centerpiece is different. Her recipe is definitely different. But the impulse &mdash; to gather, to feed, to celebrate the season &mdash; is identical. Product story: fall palette, layered textures, the keepsake gift. Signature drink: a spiced tea or apple cider blend.</div>
+      <div class="ep-tags"><span class="tag-purple tag">Crossover guest</span><span class="tag">Fall collection</span><span class="tag">Cultural tradition</span><span class="tag">Harvest</span></div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-season">Episode 4 &mdash; Holiday</div>
+      <div class="ep-title">"She always did it this way"</div>
+      <div class="ep-body">The intimate holiday gathering. All four generations in one room. This is the anchor episode of the series &mdash; the one that brings every persona together and earns the right to be a franchise. The conversation: what is the one thing you do every year that nobody questions, because she always did it that way? Product story: holiday collection, the full gift suite, the keepsake piece.</div>
+      <div class="ep-tags"><span class="tag-teal tag">All generations</span><span class="tag">Holiday collection</span><span class="tag">Full gift suite</span><span class="tag">Anchor episode</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="system" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">06 &mdash; The content system</div>
+    <div class="section-title">One production day. Three asset classes. Every channel covered.</div>
+    <div class="section-deck">This is not a content series that sits alongside the marketing plan. It is the marketing plan. Each episode is an integrated production event that generates paid, organic, and UGC assets simultaneously &mdash; organized by persona so every asset already knows which ad set it belongs to.</div>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Asset class 1</div>
+        <div class="card-title">Editorial &mdash; owned &amp; organic</div>
+        <div class="card-body">Long-form episode video. Short-form Reels cuts. Behind-the-scenes. Still photography from the table. Quote cards from the conversation. All organic-native, all branded to the season.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Asset class 2</div>
+        <div class="card-title">Campaign creative &mdash; paid</div>
+        <div class="card-body">The production stills replace seasonal campaign shoots. Product in context. Women wearing the collection. The table dressed. Every frame is a campaign asset. Mapped by persona to the corresponding ad set.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Asset class 3</div>
+        <div class="card-title">Ambassador &amp; UGC &mdash; collection coverage</div>
+        <div class="card-body">Guests become ambassadors. Their own content from the day &mdash; real, unscripted, shot on their phones &mdash; covers inbound collection pieces. The UGC layer is built into the episode structure.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">The ad set architecture</div>
+      <div class="card-title">Every asset is pre-tagged to a persona before the shoot happens</div>
+      <div class="card-body">Because the series is organized by generational guest, each episode's assets map directly to an established persona ad set. The matriarch episode produces creative for the 60+ audience. The emerging host episode produces creative for the 35&ndash;45 audience. The confirmed host episode is the core set. Paid creative is not a post-production decision &mdash; it is built into the episode brief. One production day delivers a full quarter of persona-mapped paid assets.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">The compounding effect</div>
+      <div class="card-title">The series grows in value over time</div>
+      <div class="card-body">Season one establishes the format. Season two deepens the relationship with returning guests and introduces new ones. The archive of content compounds &mdash; last spring's Easter table episode resurfaces this Easter. The asset library grows without additional shoots. The audience grows without additional spend. This is how a seasonal campaign becomes a brand asset.</div>
+    </div>
+  </div>
+</div>
+
+<div id="budget" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">07 &mdash; The budget case</div>
+    <div class="section-title">This series is targeting the seasonal campaign budget &mdash; not adding to it</div>
+    <div class="section-deck">One production day structured as an episode delivers everything a seasonal campaign shoot delivers &mdash; plus long-form content, UGC, and an owned media asset that compounds. The campaign budget doesn't go away. It gets more work to do.</div>
+    <div style="background:#f5f2ea;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem">
+      <div class="budget-row">
+        <div class="budget-label" style="font-weight:500">What the series replaces</div>
+        <div class="budget-old">Before</div>
+        <div class="budget-new">After</div>
+        <div style="min-width:80px"></div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Spring seasonal campaign shoot</div>
+        <div class="budget-old">Shoot only</div>
+        <div class="budget-new">Ep. 1 production</div>
+        <div class="budget-badge">+ long-form + UGC</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Summer seasonal campaign shoot</div>
+        <div class="budget-old">Shoot only</div>
+        <div class="budget-new">Ep. 2 production</div>
+        <div class="budget-badge">+ long-form + UGC</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Fall seasonal campaign shoot</div>
+        <div class="budget-old">Shoot only</div>
+        <div class="budget-new">Ep. 3 production</div>
+        <div class="budget-badge">+ long-form + UGC</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Holiday seasonal campaign shoot</div>
+        <div class="budget-old">Shoot only</div>
+        <div class="budget-new">Ep. 4 production</div>
+        <div class="budget-badge">+ long-form + UGC</div>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="stat-card">
+        <div class="stat-label">Production events per year</div>
+        <div class="stat-val">4</div>
+        <div class="stat-sub">One per season</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Asset classes per episode</div>
+        <div class="stat-val">3</div>
+        <div class="stat-sub">Editorial, paid, UGC</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Persona ad sets covered</div>
+        <div class="stat-val">4</div>
+        <div class="stat-sub">Mapped before the shoot</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">The net-new case</div>
+      <div class="card-title">What the series produces that campaign shoots never did</div>
+      <div class="card-body">A seasonal campaign shoot produces stills and maybe short video. It does not produce a long-form content library. It does not build an audience. It does not generate UGC. It does not create a brand asset that compounds in value across seasons. This series does all of those things on the same production day, at the same cost &mdash; or less, because the home location eliminates studio and set costs, and the guests participate without traditional talent fees.</div>
+    </div>
+  </div>
+</div>
+
+<div id="ask" class="sec">
+  <div class="section-wrap">
+    <div class="section-label">08 &mdash; Next steps</div>
+    <div class="section-title">What we need to make season one</div>
+    <div class="section-deck">Four decisions to move from concept to production.</div>
+    <div style="background:#f5f2ea;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem">
+      <div class="ask-item">
+        <div class="ask-num">01</div>
+        <div class="ask-content">
+          <div class="ask-title">Name the series</div>
+          <div class="ask-body">Select from the candidates on the cover or develop a new option. The name anchors the brand identity for the format &mdash; it should feel timeless, warm, and specific to her.</div>
+        </div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">02</div>
+        <div class="ask-content">
+          <div class="ask-title">Define the host</div>
+          <div class="ask-body">Who is the consistent presence across all four episodes? An existing Mary Square ambassador, a creator who already lives this life, or a new face built for this series. She is the thread that makes it a franchise.</div>
+        </div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">03</div>
+        <div class="ask-content">
+          <div class="ask-title">Map the seasonal campaign budget</div>
+          <div class="ask-body">Identify the current spend per seasonal shoot. That number becomes the episode production budget. Any delta between the two is the case for incremental investment &mdash; or the savings argument.</div>
+        </div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">04</div>
+        <div class="ask-content">
+          <div class="ask-title">Greenlight episode one</div>
+          <div class="ask-body">Start with spring. One episode proves the format. One production day generates the first full quarter of persona-mapped paid assets, long-form content, and UGC. If it works, the series earns season two automatically.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="border-left:3px solid #888780;border-radius:0 12px 12px 0">
+      <div class="card-label">The closing argument</div>
+      <div class="card-title">She already sets the table. We just need to be in the room.</div>
+      <div class="card-body">Mary Square already has the customer. She already lives this life. She already gathers, celebrates, and curates &mdash; beautifully, every time. This series doesn't ask her to become someone else. It asks her to sit down. And it asks the brand to set the table around her. That's not a content strategy. That's a brand homecoming.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function pickName(el,name){
+  document.querySelectorAll('.name-pill').forEach(p=>p.classList.remove('picked'));
+  el.classList.add('picked');
+  document.getElementById('cover-title-display').textContent=name;
+}
+</script>
+</body>
+</html>
